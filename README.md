@@ -2,12 +2,10 @@
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+- Peaple use the same password for more than one login attempt and this thing will make more easy to be haked.
+- It is a very simple method that will generate a unique password for every login attempt and a prim structure for a website.
+- A password random generated is more stronger that a password created whit key word that you woant to remember easily.
+- To use random function, while and if.
 
 
 
@@ -36,13 +34,6 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/whi
 ## License
 
 MIT License
-
-
-
-
-## How to Contribute
-
-If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
 
 ## Tests
 
