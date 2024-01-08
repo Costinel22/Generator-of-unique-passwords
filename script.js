@@ -93,13 +93,13 @@ function getPasswordOptions() {
     var length = parseInt(prompt("Tel me the caracter number you want to have in password no les 8 or more 128"));
     if (length < 8 || length > 128) {
         alert("Please enter your caracter number between 8 and 128 characters");
-        return
+        return { length };
     }
-    specialCharacters = confirm("Du you want to use special characters");
-    numericCharacters = confirm("Do you want to use numeric characters");
-    lowerCasedCharacters = confirm("Do you want to use lowercase characters");
-    upperCasedCharacters = confirm("Do you want to use upercase caracters");
-    return { length, specialCharacters: specialCharacters, numericCharacters: numericCharacters, lowerCasedCharacters: lowerCasedCharacters, upperCasedCharacters: upperCasedCharacters }
+    var addSpecialCharacters = confirm("Du you want to use special characters");
+    var addNumericCharacters = confirm("Do you want to use numeric characters");
+    var addLowerCasedCharacters = confirm("Do you want to use lowercase characters");
+    var addUpperCasedCharacters = confirm("Do you want to use upercase caracters");
+    return { length, addSpecialCharacters, addUpperCasedCharacters, addLowerCasedCharacters, addNumericCharacters }
 
 }
 
@@ -110,7 +110,27 @@ function getRandom(arr) {
 
 
 // Function to generate password with user input
-
+function generatePassword() {
+    var options = getPasswordOptions();
+    var characters = [];
+    if (options.addUpperCasedCharacters) {
+        characters.push(...upperCasedCharacters);
+    }
+    if (options.addLowerCasedCharacters) {
+        characters.push(...lowerCasedCharacters);
+    }
+    if (options.addNumericCharacters) {
+        characters.push(...numericCharacters);
+    }
+    if (options.addSpecialCharacters) {
+        characters.push(...specialCharacters);
+    }
+    var password = "";
+    for (var i = 0; i < options.length; i++) {
+        password += getRandom(characters);
+    }
+    return password;
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
