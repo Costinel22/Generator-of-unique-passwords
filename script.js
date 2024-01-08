@@ -90,19 +90,22 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-    var length = parseInt(prompt("Tel me the caracter number you want to have in password no les 8 or more 128"));
-    if (length < 8 || length > 128) {
-        alert("Please enter your caracter number between 8 and 128 characters");
-        return { length };
+    while (true) {
+        // add prompt options 
+        var length = parseInt(prompt("Tel me the caracter number you want to have in password no les 8 or more 128"));
+        // add condition allert check
+        if (length >= 8 && length <= 128) {
+            // create variable to store password caracter confirmation
+            var addSpecialCharacters = confirm("Du you want to use special characters?");
+            var addNumericCharacters = confirm("Do you want to use numeric characters?");
+            var addLowerCasedCharacters = confirm("Do you want to use lowercase characters?");
+            var addUpperCasedCharacters = confirm("Do you want to use upercase caracters?");
+            return { length, addSpecialCharacters, addUpperCasedCharacters, addLowerCasedCharacters, addNumericCharacters }
+        } else {
+            alert("Please enter your caracter number between 8 and 128 characters!");
+        }
     }
-    var addSpecialCharacters = confirm("Du you want to use special characters");
-    var addNumericCharacters = confirm("Do you want to use numeric characters");
-    var addLowerCasedCharacters = confirm("Do you want to use lowercase characters");
-    var addUpperCasedCharacters = confirm("Do you want to use upercase caracters");
-    return { length, addSpecialCharacters, addUpperCasedCharacters, addLowerCasedCharacters, addNumericCharacters }
-
 }
-
 // Function for getting a random element from an array
 function getRandom(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
